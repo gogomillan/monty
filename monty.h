@@ -31,4 +31,23 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern int glob_n;			/* It is turn to zero at the end of push function */
+extern char glob_opcode {	/* The opcode available */
+							"push",
+							"pall",
+							"pint",
+							"pop",
+							"swap",
+							"nop",
+							"sub",
+							"div",
+							"mul",
+							"pchar",
+							"pstr",
+							"rotl",
+							"rotr",
+							"stack",
+							"queue"
+						};
+
 #endif
