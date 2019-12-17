@@ -41,8 +41,8 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* **Juan Marcos Cabezas** - *Initial work* - [PurpleBooth](https://github.com/juanmarcoscabezas)
-* **Gonzalo Gomez Millan** - *Initial work* - [PurpleBooth](https://github.com/gogomillan)
+* **Juan Marcos Cabezas** - *Initial work* - [PurpleBoothJMC](https://github.com/juanmarcoscabezas)
+* **Gonzalo Gomez Millan** - *Initial work* - [PurpleBoothGGM](https://github.com/gogomillan)
 
 ## License
 
