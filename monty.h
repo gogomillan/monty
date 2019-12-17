@@ -1,6 +1,9 @@
 #ifndef HOLBERTON_FIFO_LIFO
 #define HOLBERTON_FIFO_LIFO
 
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -32,22 +35,10 @@ typedef struct instruction_s
 } instruction_t;
 
 extern int glob_n;			/* It is turn to zero at the end of push function */
-extern char glob_opcode {	/* The opcode available */
-							"push",
-							"pall",
-							"pint",
-							"pop",
-							"swap",
-							"nop",
-							"sub",
-							"div",
-							"mul",
-							"pchar",
-							"pstr",
-							"rotl",
-							"rotr",
-							"stack",
-							"queue"
-						};
+enum opcodes
+{	/* The opcode available enumeration */
+	push, pall, pint, pop, swap, nop, sub, div, mul, pchar,
+	pstr, rotl, rotr, stack, queue, null
+};
 
 #endif
