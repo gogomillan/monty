@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int glob_n;
+
 /**
  * readfile - Open and read the command file
  * @file: The name of the file
@@ -11,6 +13,9 @@ char *buffer = NULL, *tmp, *token, command[100],  number[100];
 FILE *fp;
 size_t len = 0;
 ssize_t read;
+void (*f)(stack_t **, unsigned int);
+int line_n = 0;
+stack_t *stack = NULL;
 
 	fp = fopen(file, "r");
 	if (fp == NULL)
@@ -20,20 +25,21 @@ ssize_t read;
 
 	while ((read = getline(&buffer, &len, fp)) != -1)
 	{
+		line_n++;
 		tmp = strdup(buffer);
 		token = strtok(tmp, " \t\n\r");
-		if (strncmp(token, "push", 4) == 0)
+		strcpy(command, token);
+		f = check_command(command);
+		if (f == NULL)
 		{
-			strcpy(command, token);
-			token = strtok(NULL, " \n\r\t");
-			strcpy(number, token);
-			printf("%s | %s\n", command, number);
+			fprintf(stderr, "L<%d>: unknown instruction <%s>", line_n, command);
+			exit(EXIT_FAILURE);
 		}
-		else
-		{
-			strcpy(command, token);
-			printf("%s\n", command);
-		}
+		token = strtok(NULL, " \n\r\t");
+		strcpy(number, token);
+		glob_n = atoi(number);
+		f(&stack, line_n);
+
 		free(tmp);
 	}
 	fclose(fp);
