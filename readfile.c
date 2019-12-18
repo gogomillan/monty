@@ -7,13 +7,13 @@
  */
 void readfile(char *file)
 {
-char *buffer = NULL, *tmp, *token, command[100],  number[100];
-FILE *fp;
-size_t len = 0;
-ssize_t read;
-void (*f)(stack_t **, unsigned int);
-int line_n = 0;
-stack_t *stack = NULL;
+	char *buffer = NULL, *tmp, *token, command[100],  number[100];
+	FILE *fp;
+	size_t len = 0;
+	ssize_t read;
+	void (*f)(stack_t **, unsigned int);
+	int line_n = 0;
+	stack_t *stack = NULL;
 
 	fp = fopen(file, "r");
 	if (fp == NULL)

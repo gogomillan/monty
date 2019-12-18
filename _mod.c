@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * mod - sub the two top elements of the stack
+ * mod - aply the mod to the two top elements of the stack
  * @stack: The stack
  * @line_number: The current file line number
  * Return: Nothing or EXIT_FAILURE on failure
