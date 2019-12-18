@@ -1,7 +1,5 @@
 #include "monty.h"
 
-int glob_n;
-
 /**
  * readfile - Open and read the command file
  * @file: The name of the file
@@ -36,8 +34,11 @@ stack_t *stack = NULL;
 			exit(EXIT_FAILURE);
 		}
 		token = strtok(NULL, " \n\r\t");
-		strcpy(number, token);
-		glob_n = atoi(number);
+		if (token != NULL)
+		{
+			strcpy(number, token);
+			glob_n = atoi(number);
+		}
 		f(&stack, line_n);
 
 		free(tmp);
