@@ -21,8 +21,9 @@ void readfile(char *file)
 		exit(EXIT_FAILURE);
 	}
 	while ((read = getline(&buffer, &len, fp)) != -1)
-	{
-		line_n++;
+	{	line_n++;
+		if (buffer[0] == '#')
+			continue;
 		if (tmp != NULL)
 			free(tmp);
 		tmp = strdup(buffer), token = strtok(tmp, " \t\n\r");
