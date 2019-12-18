@@ -3,22 +3,14 @@
 #define BUFFER_SIZE 1024
 
 /**
- *
- *
- *
- *
+ * readfile - Open and read the command file
+ * @file: The name of the file
+ * Return: Nothing or EXIT_FAILURE on failure
  */
 void readfile(char *file)
 {
-	int fd;
-	int r;
-	int i;
-	int cmd_pos = 0;
-	int num_pos = 0;
-	int cmd_found = 0;
-	char *buffer;
-	char command[100];
-	char number[100];
+int fd, int r, int i, int cmd_pos = 0, int num_pos = 0, int cmd_found = 0;
+char *buffer. char command[100]. char number[100];
 
 	buffer = malloc(sizeof(char) * BUFFER_SIZE);
 
@@ -62,7 +54,7 @@ void readfile(char *file)
 				}
 				command[cmd_pos] = '\0';
 				number[num_pos] = '\0';
-				//check_command(command);
+				/* check_command(command); */
 				printf("%s\n", command);
 				set_number(number);
 				memset(command, '\0', 100);

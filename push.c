@@ -1,15 +1,15 @@
 #include "monty.h"
 
 /**
- *
- *
- *
- *
+ * push - push the value on the stack
+ * @stack: The stack
+ * @line_number: The current file line number
+ * Return: Nothing or EXIT_FAILURE on failure
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node;
-	int k = 10;
+stack_t *node;
+int k = 10;
 
 	node = malloc(sizeof(stack_t));
 

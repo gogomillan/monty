@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- *
- *
- *
- *
+ * pall - prints all the elements on the stack
+ * @stack: The stack
+ * @line_number: The current file line number
+ * Return: Nothing
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
