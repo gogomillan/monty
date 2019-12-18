@@ -46,19 +46,3 @@ void readfile(char *file)
 	}
 	fclose(fp), free(tmp), free(buffer), freestack(stack);
 }
-
-/**
- * freestack- Free the memory
- * @stack: The stack
- */
-void freestack(stack_t *stack)
-{
-	stack_t *node = stack;
-
-	while (stack != NULL)
-	{
-		node = stack;
-		stack = stack->next;
-		free(node);
-	}
-}
