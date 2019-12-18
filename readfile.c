@@ -7,7 +7,7 @@
  */
 void readfile(char *file)
 {
-	char *buffer = NULL, *tmp, *token, command[100],  number[100];
+	char *buffer = NULL, *tmp = NULL, *token, command[100],  number[100];
 	FILE *fp;
 	size_t len = 0;
 	ssize_t read;
