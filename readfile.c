@@ -46,4 +46,5 @@ char *buffer,  command[100],  number[100];
 				cmd_pos = 0, num_pos = 0, cmd_found = 0;
 			}
 		}
+	free(buffer);
 }
