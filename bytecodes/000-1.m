@@ -1,2 +1,2 @@
-push 01
+push -1
 pall 10

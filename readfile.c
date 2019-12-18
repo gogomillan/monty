@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int valnumber(char *token);
+int valnumber(char *command, char *token, stack_t *stack, unsigned int line_n);
 
 /**
  * readfile - Open and read the command file
@@ -40,7 +40,7 @@ void readfile(char *file)
 			exit(EXIT_FAILURE);
 		}
 		token = strtok(NULL, " \n\r\t");
-		valnumber(token);
+		valnumber(command, token, stack, line_n);
 		f(&stack, line_n);
 	}
 	fclose(fp), free(tmp), free(buffer), freestack(stack);
@@ -48,26 +48,35 @@ void readfile(char *file)
 
 /**
  * valnumber - Integer validation
+ * @command: The opcode command
  * @token: The string wit the number
+ * @stack: The current stack
+ * @line_n: The current line of the file
  * Return: EXIT_FAILURE on failure
  */
-int valnumber(char *token)
+int valnumber(char *command, char *token, stack_t *stack, unsigned int line_n)
 {
 	char number[100];
 
-	if (token == NULL)
+	if (strcmp(command, "push") == 0)
 	{
-		glob_n = -1;
-		return (EXIT_FAILURE);
+		if (token == NULL)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_n);
+			freestack(stack);
+			exit(EXIT_FAILURE);
+		}
+
+		strcpy(number, token);
+		glob_n = atoi(number);
+		sprintf(number, "%d", glob_n);
+
+		if (strcmp(number, token) == 0)
+			return (EXIT_SUCCESS);
+
+		fprintf(stderr, "L%d: usage: push integer\n", line_n);
+		freestack(stack);
+		exit(EXIT_FAILURE);
 	}
-
-	strcpy(number, token);
-	glob_n = atoi(number);
-	sprintf(number, "%d", glob_n);
-
-	if (strcmp(number, token) == 0)
-		return (EXIT_SUCCESS);
-
-	glob_n = -1;
-	return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
