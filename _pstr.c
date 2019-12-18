@@ -9,6 +9,7 @@
 void pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
+	int print = 0;
 
 	(void) line_number;
 	node = *stack;
@@ -20,6 +21,8 @@ void pstr(stack_t **stack, unsigned int line_number)
 			break;
 		printf("%c", node->n);
 		node = node->next;
+		print = 1;
 	}
-	printf("\n");
+	if (print == 1)
+		printf("\n");
 }
