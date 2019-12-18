@@ -13,6 +13,10 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
+
+	glob.stack_n = 0;
+	glob.stack_mode = PUSH_STACK;
+
 	readfile(argv[1]);
 	return (EXIT_SUCCESS);
 }

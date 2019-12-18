@@ -1,6 +1,9 @@
 #ifndef HOLBERTON_FIFO_LIFO
 #define HOLBERTON_FIFO_LIFO
 
+#define PUSH_STACK 0
+#define PUSH_QUEUE 1
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -40,7 +43,12 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern int glob_n;
+typedef struct global
+{
+	int stack_n;
+	int stack_mode;
+} global;
+extern global glob;
 
 void freestack(stack_t *stack);
 void readfile(char *file);

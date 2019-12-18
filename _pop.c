@@ -25,6 +25,6 @@ void pop(stack_t **stack, unsigned int line_number)
 	else
 		*stack = NULL;
 
-	glob_n = node->n;
+	glob.stack_n = node->n;
 	free(node);
 }

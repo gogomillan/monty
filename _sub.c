@@ -23,9 +23,9 @@ void sub(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	pop(stack, line_number);
-	substraction = glob_n;
+	substraction = glob.stack_n;
 	pop(stack, line_number);
-	substraction -= glob_n;
-	glob_n = substraction * -1;
+	substraction -= glob.stack_n;
+	glob.stack_n = substraction * -1;
 	push(stack, line_number);
 }

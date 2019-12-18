@@ -29,9 +29,9 @@ void mod(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	pop(stack, line_number);
-	module = glob_n;
+	module = glob.stack_n;
 	pop(stack, line_number);
-	module = glob_n % module;
-	glob_n = module;
+	module = glob.stack_n % module;
+	glob.stack_n = module;
 	push(stack, line_number);
 }

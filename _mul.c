@@ -23,9 +23,9 @@ void mul(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	pop(stack, line_number);
-	multi = glob_n;
+	multi = glob.stack_n;
 	pop(stack, line_number);
-	multi *= glob_n;
-	glob_n = multi;
+	multi *= glob.stack_n;
+	glob.stack_n = multi;
 	push(stack, line_number);
 }

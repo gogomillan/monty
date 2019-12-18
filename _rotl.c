@@ -17,7 +17,7 @@ void rotl(stack_t **stack, unsigned int line_number)
 		return;
 
 	pop(stack, line_number);
-	value = glob_n;
+	value = glob.stack_n;
 
 	tail = *stack;
 	new_node = malloc(sizeof(stack_t));

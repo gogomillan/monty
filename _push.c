@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int glob_n;
+struct global glob;
 
 /**
  * push - push the value on the stack
@@ -21,8 +21,11 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	node->next = *stack;
-	node->prev = NULL;
-	node->n = glob_n;
-	*stack = node;
+	if (glob.stack_mode == PUSH_STACK)
+	{
+		node->next = *stack;
+		node->prev = NULL;
+		node->n = glob.stack_n;
+		*stack = node;
+	}
 }

@@ -82,7 +82,7 @@ int valnumber(char *command, char *token, stack_t *stack, unsigned int line_n)
 			}
 			token++, i++;
 		}
-		glob_n = atoi(number);
+		glob.stack_n = atoi(number);
 	}
 	return (EXIT_SUCCESS);
 }

@@ -29,9 +29,9 @@ void _div(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	pop(stack, line_number);
-	top = glob_n;
+	top = glob.stack_n;
 	pop(stack, line_number);
-	next = glob_n;
-	glob_n = next / top;
+	next = glob.stack_n;
+	glob.stack_n = next / top;
 	push(stack, line_number);
 }
