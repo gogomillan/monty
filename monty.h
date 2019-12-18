@@ -46,6 +46,7 @@ void set_number(char *number);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 void (*check_command(char *command))(stack_t **, unsigned int);
 
 #endif
