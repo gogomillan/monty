@@ -17,11 +17,9 @@ void readfile(char *file)
 
 	fp = fopen(file, "r");
 	if (fp == NULL)
-	{	printf("Error: Can't open file %s\n", file);
-		freestack(stack);
+	{	printf("Error: Can't open file %s\n", file), freestack(stack);
 		exit(EXIT_FAILURE);
 	}
-
 	while ((read = getline(&buffer, &len, fp)) != -1)
 	{
 		line_n++;
@@ -29,7 +27,9 @@ void readfile(char *file)
 			continue;
 		tmp = strdup(buffer), token = strtok(tmp, " \t\n\r"), strcpy(command, token);
 		if (token == NULL)
+		{	free(tmp);
 			continue;
+		}
 		f = check_command(command);
 		if (f == NULL)
 		{	fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_n, command);
