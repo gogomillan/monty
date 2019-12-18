@@ -3,6 +3,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <string.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -40,5 +45,12 @@ enum opcodes
 	PUSH, PALL, PINT, POP, SWAP, NOP, SUB, DIV, MUL, PCHAR,
 	PSTR, ROTL, ROTR, STACK, QUEUE, NIL
 };
+
+void readfile(char *file);
+void check_command(char *command);
+void set_number(char *number);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+
 
 #endif
