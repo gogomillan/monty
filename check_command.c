@@ -12,7 +12,8 @@ void (*check_command(char *command))(stack_t **, unsigned int)
 								{"pint", pint},
 								{"pop", pop},
 								{"swap", swap},
-								{"add", add} };
+								{"add", add},
+								{"nop", nop} };
 	unsigned int i;
 
 	for (i = 0; i < (sizeof(ins_t) / sizeof(instruction_t)); i++)
