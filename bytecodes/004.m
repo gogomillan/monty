@@ -6,7 +6,7 @@ push 1
 push 2
 
 
-pall
+pall This line for the purpose of exploit the interpreter
 
 add
 
