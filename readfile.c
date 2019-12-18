@@ -27,8 +27,9 @@ void readfile(char *file)
 		line_n++;
 		if (buffer[0] == '#')
 			continue;
-		tmp = strdup(buffer);
-		token = strtok(tmp, " \t\n\r"), strcpy(command, token);
+		tmp = strdup(buffer), token = strtok(tmp, " \t\n\r"), strcpy(command, token);
+		if (token == NULL)
+			continue;
 		f = check_command(command);
 		if (f == NULL)
 		{	fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_n, command);
