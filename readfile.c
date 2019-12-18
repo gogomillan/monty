@@ -23,13 +23,13 @@ void readfile(char *file)
 	while ((read = getline(&buffer, &len, fp)) != -1)
 	{
 		line_n++;
-		if (buffer[0] == '#')
-			continue;
 		tmp = strdup(buffer), token = strtok(tmp, " \t\n\r");
 		if (token == NULL)
 		{	free(tmp);
 			continue;
 		}
+		if (token[0] == '#')
+			continue;
 		strcpy(command, token), f = check_command(command);
 		if (f == NULL)
 		{	fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_n, command);
