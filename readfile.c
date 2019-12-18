@@ -30,7 +30,7 @@ stack_t *stack = NULL;
 		f = check_command(command);
 		if (f == NULL)
 		{
-			fprintf(stderr, "L<%d>: unknown instruction <%s>", line_n, command);
+			fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_n, command);
 			exit(EXIT_FAILURE);
 		}
 		token = strtok(NULL, " \n\r\t");
