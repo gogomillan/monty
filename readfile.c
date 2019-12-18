@@ -37,7 +37,7 @@ void readfile(char *file)
 			free(tmp), free(buffer), freestack(stack), fclose(fp);
 			exit(EXIT_FAILURE);
 		}
-		token = strtok(NULL, " \n\r\t");
+		token = strtok(NULL, " \n\r\t"), glob_n = -1;
 		if (token != NULL)
 		{	strcpy(number, token);
 			glob_n = atoi(number);

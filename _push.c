@@ -12,7 +12,12 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
 
-	(void) line_number;
+	if (glob_n == -1)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		freestack(*stack);
+		exit(EXIT_FAILURE);
+	}
 	node = malloc(sizeof(stack_t));
 	if (!node)
 	{
