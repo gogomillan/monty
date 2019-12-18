@@ -22,7 +22,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 	}
 	tail = *stack;
 	prev = *stack;
-	while(tail->next)
+	while (tail->next)
 	{
 		prev = tail;
 		tail = tail->next;
