@@ -23,11 +23,11 @@ void readfile(char *file)
 	while ((read = getline(&buffer, &len, fp)) != -1)
 	{
 		line_n++;
+		if (tmp != NULL)
+			free(tmp);
 		tmp = strdup(buffer), token = strtok(tmp, " \t\n\r");
 		if (token == NULL)
-		{	free(tmp);
 			continue;
-		}
 		if (token[0] == '#')
 			continue;
 		strcpy(command, token), f = check_command(command);
@@ -42,11 +42,8 @@ void readfile(char *file)
 			glob_n = atoi(number);
 		}
 		f(&stack, line_n);
-		free(tmp);
 	}
-	fclose(fp);
-	free(buffer);
-	freestack(stack);
+	fclose(fp), free(tmp), free(buffer), freestack(stack);
 }
 
 /**
