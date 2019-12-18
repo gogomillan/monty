@@ -33,7 +33,7 @@ void readfile(char *file)
 			continue;
 		strcpy(command, token), f = check_command(command);
 		if (f == NULL)
-		{	fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_n, command);
+		{	fprintf(stderr, "L%d: unknown instruction %s\n", line_n, command);
 			free(tmp), free(buffer), freestack(stack), fclose(fp);
 			exit(EXIT_FAILURE);
 		}
