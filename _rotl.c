@@ -14,11 +14,13 @@ void rotl(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L<%d>: can't rotl, stack too short\n", line_number);
+		freestack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next == NULL)
 	{
 		fprintf(stderr, "L<%d>: can't rotl, stack too short\n", line_number);
+		freestack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	pop(stack, line_number);
@@ -29,6 +31,7 @@ void rotl(stack_t **stack, unsigned int line_number)
 	if (!new_node)
 	{
 		fprintf(stderr, "Error: malloc failed");
+		freestack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	while (tail->next)

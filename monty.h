@@ -41,6 +41,7 @@ typedef struct instruction_s
 
 extern int glob_n;
 
+void freestack(stack_t *stack);
 void readfile(char *file);
 void set_number(char *number);
 void (*check_command(char *command))(stack_t **, unsigned int);

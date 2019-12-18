@@ -18,6 +18,7 @@ void readfile(char *file)
 	fp = fopen(file, "r");
 	if (fp == NULL)
 	{	printf("Error: Can't open file %s\n", file);
+		freestack(stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -26,13 +27,12 @@ void readfile(char *file)
 		line_n++;
 		if (buffer[0] == '#')
 			continue;
-
 		tmp = strdup(buffer);
 		token = strtok(tmp, " \t\n\r"), strcpy(command, token);
 		f = check_command(command);
 		if (f == NULL)
-		{
-			fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_n, command);
+		{	fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_n, command);
+			free(tmp), free(buffer), freestack(stack), fclose(fp);
 			exit(EXIT_FAILURE);
 		}
 		token = strtok(NULL, " \n\r\t");
@@ -41,9 +41,25 @@ void readfile(char *file)
 			glob_n = atoi(number);
 		}
 		f(&stack, line_n);
-
 		free(tmp);
 	}
 	fclose(fp);
 	free(buffer);
+	freestack(stack);
+}
+
+/**
+ * freestack- Free the memory
+ * @stack: The stack
+ */
+void freestack(stack_t *stack)
+{
+	stack_t *node = stack;
+
+	while (stack != NULL)
+	{
+		node = stack;
+		stack = stack->next;
+		free(node);
+	}
 }
