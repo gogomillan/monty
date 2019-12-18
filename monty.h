@@ -37,8 +37,8 @@ typedef struct instruction_s
 extern int glob_n;			/* It is turn to zero at the end of push function */
 enum opcodes
 {	/* The opcode available enumeration */
-	push, pall, pint, pop, swap, nop, sub, div, mul, pchar,
-	pstr, rotl, rotr, stack, queue, null
+	PUSH, PALL, PINT, POP, SWAP, NOP, SUB, DIV, MUL, PCHAR,
+	PSTR, ROTL, ROTR, STACK, QUEUE, NIL
 };
 
 #endif
