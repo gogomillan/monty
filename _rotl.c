@@ -12,17 +12,10 @@ void rotl(stack_t **stack, unsigned int line_number)
 	int value;
 
 	if (*stack == NULL)
-	{
-		fprintf(stderr, "L%d: can't rotl, stack too short\n", line_number);
-		freestack(*stack);
-		exit(EXIT_FAILURE);
-	}
+		return;
 	if ((*stack)->next == NULL)
-	{
-		fprintf(stderr, "L%d: can't rotl, stack too short\n", line_number);
-		freestack(*stack);
-		exit(EXIT_FAILURE);
-	}
+		return;
+
 	pop(stack, line_number);
 	value = glob_n;
 
