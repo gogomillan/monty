@@ -14,7 +14,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		freestack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	if ((*stack)->n < 0 || (*stack)->n > 255)
+	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		freestack(*stack);
