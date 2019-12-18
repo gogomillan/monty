@@ -25,12 +25,12 @@ void readfile(char *file)
 		line_n++;
 		if (buffer[0] == '#')
 			continue;
-		tmp = strdup(buffer), token = strtok(tmp, " \t\n\r"), strcpy(command, token);
+		tmp = strdup(buffer), token = strtok(tmp, " \t\n\r");
 		if (token == NULL)
 		{	free(tmp);
 			continue;
 		}
-		f = check_command(command);
+		strcpy(command, token), f = check_command(command);
 		if (f == NULL)
 		{	fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_n, command);
 			free(tmp), free(buffer), freestack(stack), fclose(fp);
