@@ -57,6 +57,7 @@ void readfile(char *file)
 int valnumber(char *command, char *token, stack_t *stack, unsigned int line_n)
 {
 	char number[100];
+	int i = 0;
 
 	if (strcmp(command, "push") == 0)
 	{
@@ -68,15 +69,20 @@ int valnumber(char *command, char *token, stack_t *stack, unsigned int line_n)
 		}
 
 		strcpy(number, token);
+		while (*token != '\0')
+		{
+			if (isdigit(*token) == 0)
+			{
+				if (i != 0 && *token != '-')
+				{
+					fprintf(stderr, "L%d: usage: push integer\n", line_n);
+					freestack(stack);
+					exit(EXIT_FAILURE);
+				}
+			}
+			token++, i++;
+		}
 		glob_n = atoi(number);
-		sprintf(number, "%d", glob_n);
-
-		if (strcmp(number, token) == 0)
-			return (EXIT_SUCCESS);
-
-		fprintf(stderr, "L%d: usage: push integer\n", line_n);
-		freestack(stack);
-		exit(EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
 }
