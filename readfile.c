@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int valnumber(char *token);
+
 /**
  * readfile - Open and read the command file
  * @file: The name of the file
@@ -7,7 +9,7 @@
  */
 void readfile(char *file)
 {
-	char *buffer = NULL, *tmp = NULL, *token, command[100],  number[100];
+	char *buffer = NULL, *tmp = NULL, *token, command[100];
 	FILE *fp;
 	size_t len = 0;
 	ssize_t read;
@@ -37,12 +39,35 @@ void readfile(char *file)
 			free(tmp), free(buffer), freestack(stack), fclose(fp);
 			exit(EXIT_FAILURE);
 		}
-		token = strtok(NULL, " \n\r\t"), glob_n = -1;
-		if (token != NULL)
-		{	strcpy(number, token);
-			glob_n = atoi(number);
-		}
+		token = strtok(NULL, " \n\r\t");
+		valnumber(token);
 		f(&stack, line_n);
 	}
 	fclose(fp), free(tmp), free(buffer), freestack(stack);
+}
+
+/**
+ * valnumber - Integer validation
+ * @token: The string wit the number
+ * Return: EXIT_FAILURE on failure
+ */
+int valnumber(char *token)
+{
+	char number[100];
+
+	if (token == NULL)
+	{
+		glob_n = -1;
+		return (EXIT_FAILURE);
+	}
+
+	strcpy(number, token);
+	glob_n = atoi(number);
+	sprintf(number, "%d", glob_n);
+
+	if (strcmp(number, token) == 0)
+		return (EXIT_SUCCESS);
+
+	glob_n = -1;
+	return (EXIT_FAILURE);
 }
