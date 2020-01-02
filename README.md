@@ -37,7 +37,7 @@ Add additional notes about how to deploy this on a live system
 
 * [Ubuntu](https://ubuntu.com/) - Ubuntu 14.04 LTS
 * [gcc](https://gcc.gnu.org/) - GCC, the GNU Compiler Collection
-* [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) - Used to interprete software
+* [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) - Used to interprete software (sudo apt-get install bf)
 
 ## Authors
 
