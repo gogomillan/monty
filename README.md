@@ -1,4 +1,4 @@
-# monty
+# Monty
 Through language C, and creating an esoteric software interpreter it is implemented the concepts of Stacks, Queues - LIFO, FIFO. This purpose is developed using: 
 ## Getting Started
 
