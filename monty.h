@@ -49,7 +49,8 @@ enum opcodes
 void readfile(char *file);
 void check_command(char *command);
 void set_number(char *number);
-
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
 
 
 #endif

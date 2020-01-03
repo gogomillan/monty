@@ -33,13 +33,13 @@ void readfile(char *file)
 	{
 		for (i = 0; i < r; i++)
 		{
-			if (buffer[i] != ' ')
+			if (buffer[i] != ' ' && buffer[i] != '\n')
 			{
 				command[cmd_pos] = buffer[i];
 				cmd_pos++;
 				cmd_found = 1;
 			}
-			if (buffer[i] == ' ' && cmd_found == 1)
+			if ((buffer[i] == ' ' || buffer[i] == '\n') && cmd_found == 1)
 			{
 				while (buffer[i] != '\n')
 				{
@@ -62,7 +62,8 @@ void readfile(char *file)
 				}
 				command[cmd_pos] = '\0';
 				number[num_pos] = '\0';
-				check_command(command);
+				//check_command(command);
+				printf("%s\n", command);
 				set_number(number);
 				memset(command, '\0', 100);
 				memset(command, '\0', 100);
