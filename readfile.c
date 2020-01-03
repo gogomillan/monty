@@ -70,29 +70,6 @@ void readfile(char *file)
 				num_pos = 0;
 				cmd_found = 0;
 			}
-			/*if (buffer[i] == '\n')
-			{
-				command[cmd_pos] = '\0';
-				check_command(command);
-				cmd_pos = 0;
-			}*/
 		}
 	}
-}
-
-void set_number(char *number)
-{
-	int glob_n;
-
-	if (strlen(number) > 0)
-	{
-		glob_n = atoi(number);
-		printf("%d\n", glob_n);
-	}
-}
-
-void check_command(char *command)
-{
-	if (strlen(command) > 0)
-		printf("%s\n", command);
 }
