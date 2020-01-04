@@ -18,7 +18,8 @@ void pstr(stack_t **stack, unsigned int line_number)
 			break;
 		if (node->n > 255 || node->n < 0)
 			break;
-		printf("%c\n", node->n);
+		printf("%c", node->n);
 		node = node->next;
 	}
+	printf("\n");
 }
