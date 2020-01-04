@@ -16,7 +16,9 @@ void (*check_command(char *command))(stack_t **, unsigned int)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
-		{"mul", mul}
+		{"mul", mul},
+		{"div", div},
+		{"mod", mod}
 	};
 	unsigned int i;
 
