@@ -55,6 +55,7 @@ void readfile(char *file);
 void set_number(char *number);
 void (*check_command(char *command))(stack_t **, unsigned int);
 void push(stack_t **stack, unsigned int line_number);
+void _push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);

@@ -33,5 +33,5 @@ void mod(stack_t **stack, unsigned int line_number)
 	pop(stack, line_number);
 	module = glob.stack_n % module;
 	glob.stack_n = module;
-	push(stack, line_number);
+	_push(stack, line_number);
 }

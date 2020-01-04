@@ -29,5 +29,5 @@ void swap(stack_t **stack, unsigned int line_number)
 	glob.stack_n = top;
 	push(stack, line_number);
 	glob.stack_n = next;
-	push(stack, line_number);
+	_push(stack, line_number);
 }

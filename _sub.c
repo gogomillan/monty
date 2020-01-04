@@ -27,5 +27,5 @@ void sub(stack_t **stack, unsigned int line_number)
 	pop(stack, line_number);
 	substraction -= glob.stack_n;
 	glob.stack_n = substraction * -1;
-	push(stack, line_number);
+	_push(stack, line_number);
 }

@@ -27,5 +27,5 @@ void add(stack_t **stack, unsigned int line_number)
 	pop(stack, line_number);
 	addition += glob.stack_n;
 	glob.stack_n = addition;
-	push(stack, line_number);
+	_push(stack, line_number);
 }
