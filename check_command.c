@@ -7,12 +7,15 @@
  */
 void (*check_command(char *command))(stack_t **, unsigned int)
 {
-	instruction_t ins_t[] = {	{"push", push},
-								{"pall", pall},
-								{"pint", pint},
-								{"pop", pop},
-								{"swap", swap},
-								{"add", add} };
+	instruction_t ins_t[] = {
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add} 
+		{"sub", sub}
+	};
 	unsigned int i;
 
 	for (i = 0; i < (sizeof(ins_t) / sizeof(instruction_t)); i++)
