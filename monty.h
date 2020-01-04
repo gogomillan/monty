@@ -43,6 +43,13 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct global - global variables
+ * @stack_n: Value of the actual number to push
+ * @stack_mode: Mode to push (stack or queue)
+ *
+ * Description: Struct to store this global variables
+ */
 typedef struct global
 {
 	int stack_n;
