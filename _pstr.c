@@ -9,7 +9,6 @@
 void pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
-	int print = 0;
 
 	(void) line_number;
 	node = *stack;
@@ -17,12 +16,10 @@ void pstr(stack_t **stack, unsigned int line_number)
 	{
 		if (node->n == 0)
 			break;
-		if (node->n > 255 || node->n < 0)
+		if (node->n > 127 || node->n < 0)
 			break;
 		printf("%c", node->n);
 		node = node->next;
-		print = 1;
 	}
-	if (print == 1)
-		printf("\n");
+	putchar('\n');
 }
