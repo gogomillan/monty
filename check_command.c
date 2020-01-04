@@ -5,8 +5,15 @@
  * @command: The command
  * Return: Nothing
  */
-void check_command(char *command)
+void (*check_command(char *command))(stack_t **, unsigned int)
 {
-	if (strlen(command) > 0)
-		printf("%s\n", command);
+	instruction_t ins_t[] = { {"push", push}, {"pall", pall} };
+	unsigned int i;
+
+	for (i = 0; i < (sizeof(ins_t) / sizeof(instruction_t)); i++)
+	{
+		if (strcmp(command, ins_t[i].opcode) == 0)
+			return (ins_t[i].f);
+	}
+	return (NULL);
 }
