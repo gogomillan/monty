@@ -18,7 +18,8 @@ void (*check_command(char *command))(stack_t **, unsigned int)
 		{"sub", sub},
 		{"mul", mul},
 		{"div", _div},
-		{"mod", mod}
+		{"mod", mod},
+		{"pchar", pchar}
 	};
 	unsigned int i;
 
