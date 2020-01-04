@@ -8,22 +8,27 @@
  */
 void mod(stack_t **stack, unsigned int line_number)
 {
-	int multi = 1;
+	int module = 1;
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L<%d>: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L<%d>: can't mod, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next == NULL)
 	{
-		fprintf(stderr, "L<%d>: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L<%d>: can't mod, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L<%d>: division by zero\n", line_number);
+                exit(EXIT_FAILURE);
+	}
 	pop(stack, line_number);
-	multi = glob_n;
+	module = glob_n;
 	pop(stack, line_number);
-	multi *= glob_n;
-	glob_n = multi;
+	module = glob_n % module;
+	glob_n = module;
 	push(stack, line_number);
 }
