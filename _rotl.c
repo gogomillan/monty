@@ -29,7 +29,10 @@ void rotl(stack_t **stack, unsigned int line_number)
 	if (!new_node)
 	{
 	}
-	while(tail->next);
+	while(tail->next)
+	{
+		tail = tail->next;
+	}
 
 	new_node->n = value;
 	new_node->next = NULL;
