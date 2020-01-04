@@ -31,7 +31,7 @@ void rotl(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed");
 		exit(EXIT_FAILURE);
 	}
-	while(tail->next)
+	while (tail->next)
 	{
 		tail = tail->next;
 	}
