@@ -20,7 +20,8 @@ void (*check_command(char *command))(stack_t **, unsigned int)
 		{"div", _div},
 		{"mod", mod},
 		{"pchar", pchar},
-		{"pstr", pstr}
+		{"pstr", pstr},
+		{"rotl", rotl}
 	};
 	unsigned int i;
 
