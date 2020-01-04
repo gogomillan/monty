@@ -8,22 +8,22 @@
  */
 void mul(stack_t **stack, unsigned int line_number)
 {
-	int substraction = 0;
+	int multi = 1;
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L<%d>: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L<%d>: can't mul, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next == NULL)
 	{
-		fprintf(stderr, "L<%d>: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L<%d>: can't mul, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	pop(stack, line_number);
-	substraction = glob_n;
+	multi = glob_n;
 	pop(stack, line_number);
-	substraction -= glob_n;
-	glob_n = substraction * -1;
+	multi *= glob_n;
+	glob_n = multi;
 	push(stack, line_number);
 }
