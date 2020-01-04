@@ -13,7 +13,7 @@ void (*check_command(char *command))(stack_t **, unsigned int)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
-		{"add", add} 
+		{"add", add},
 		{"sub", sub}
 	};
 	unsigned int i;
