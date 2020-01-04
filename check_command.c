@@ -7,6 +7,7 @@
  */
 void (*check_command(char *command))(stack_t **, unsigned int)
 {
+<<<<<<< HEAD
 	instruction_t ins_t[] = {
 		{"push", push},
 		{"pall", pall},
@@ -14,6 +15,7 @@ void (*check_command(char *command))(stack_t **, unsigned int)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
+		{"nop", nop},
 		{"sub", sub}
 	};
 	unsigned int i;
