@@ -93,6 +93,25 @@ Usage: monty file
 
 ## Cases
 
+### Case: push, pall 
+The opcode push pushes an element to the stack.
+- Usage: push <int>  
+  where <int> is an integer  
+The opcode pall prints all the values on the stack, starting from the top of the stack.
+- Usage pall  
+
+```bash
+vagrant@~$ cat -e bytecodes/00.m
+push 1$
+push 2$
+push 3$
+pall$
+vagrant@~$ ./monty bytecodes/00.m
+3
+2
+1
+vagrant@~$
+```
 
 ## Authors
 
