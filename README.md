@@ -1,5 +1,14 @@
+<div align="center">
+  <img width="368" height="245" src="assets/montylogo.png">
+</div>
+
 # Monty
-Through language C, and creating an esoteric software interpreter it is implemented the concepts of Stacks, Queues - LIFO, FIFO.
+This is an interpreter for Monty bytecodes files. Through the esoteric [Monty](http://montyscoconut.github.io/) is addressed Linked lists, Stacks, Queues - LIFO, FIFO concepts. Developed on Ubuntu Linux using C language. Bonus track - Brainf\*ck 
+
+![OS Linux](https://img.shields.io/badge/OS-Linux-blue.svg)
+![distro Ubuntu](https://img.shields.io/badge/distro-Ubuntu-orange.svg)
+![tecnology C](https://img.shields.io/badge/technology-C-green.svg)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
