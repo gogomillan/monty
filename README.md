@@ -22,6 +22,28 @@ The concepts covered here are:
 - gcc (Ubuntu 4.8.4-2ubuntu1~14.04.4) 4.8.4
 - C language understanding
 
+## Installation
+1. Clone the repo in your local machine:
+
+**Example:**
+```bash
+vagrant@~$
+vagrant@~$ git clone https://github.com/gogomillan/monty.git
+vagrant@~$
+```
+2. Go to the directory and compile the task you want:
+
+**Example:**
+```bash
+vagrant@~$
+vagrant@~$ cd monty
+vagrant@~$ ls
+_add.c  bytecodes        freestack.c  _mod.c   _nop.c    _pint.c  _push.c     README.md  set_number.c  _swap.c
+assets  check_command.c  LICENSE      monty.h  _pall.c   _pop.c   _queue.c    _rotl.c    _stack.c
+bf      _div.c           main.c       _mul.c   _pchar.c  _pstr.c  readfile.c  _rotr.c    _sub.c
+vagrant@~$
+```
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
