@@ -63,6 +63,7 @@ text after the opcode or its required argument is not taken into account:
 vagrant@~$ cat -e bytecodes/000.m
 push 0$
 push 1$
+$
 push 2$
   push 3$
                    pall    $
@@ -113,6 +114,53 @@ vagrant@~$ ./monty bytecodes/00.m
 vagrant@~$
 ```
 
+### Case: pint
+The opcode pint prints the value at the top of the stack, followed by a new line.
+- Usage: pint
+  If the stack is empty, print the error message L<line_number>: can't pint, stack empty,
+  followed by a new line, and exit with the status EXIT_FAILURE
+
+```bash
+vagrant@~$ cat -e bytecodes/00.m
+push 1$
+push 2$
+push 3$
+pall$
+vagrant@~$ ./monty bytecodes/00.m
+3
+2
+1
+vagrant@~$
+```
+
+### Case: pop
+The opcode pop removes the top element of the stack.
+- Usage: pop
+  If the stack is empty, print the error message L<line_number>: can't pop an empty stack,
+  followed by a new line, and exit with the status EXIT_FAILURE
+
+```bash
+vagrant@~$ cat bytecodes/07.m 
+push 1
+push 2
+push 3
+pall
+pop
+pall
+pop
+pall
+pop
+pall
+vagrant@~$ ./monty bytecodes/07.m 
+3
+2
+1
+2
+1
+1
+vagrant@~$ 
+```
+  
 ## Authors
 
 * **Juan Marcos Cabezas** - *Initial work* - [PurpleBoothJMC](https://github.com/juanmarcoscabezas)
