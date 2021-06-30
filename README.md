@@ -3,7 +3,7 @@
 </div>
 
 # Monty
-This is an interpreter for Monty bytecodes files. Through the esoteric [Monty](http://montyscoconut.github.io/) is addressed Linked lists, Stacks, Queues - LIFO, FIFO concepts. Developed on Ubuntu Linux using C language. Bonus track - Brainf\*ck 
+This is an interpreter for Monty bytecodes files. Through the esoteric [Monty](http://montyscoconut.github.io/) is addressed Linked lists, Stacks, Queues - LIFO, FIFO concepts. Developed on Ubuntu Linux using C language. __Bonus track - Brainf\*ck__ 
 
 ![OS Linux](https://img.shields.io/badge/OS-Linux-blue.svg)
 ![distro Ubuntu](https://img.shields.io/badge/distro-Ubuntu-orange.svg)
