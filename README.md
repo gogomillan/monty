@@ -95,10 +95,10 @@ Usage: monty file
 ## Cases
 
 ### Case: push, pall 
-The opcode push pushes an element to the stack.
+The opcode push pushes an element to the stack.  
 - Usage: push <int>  
   where <int> is an integer  
-The opcode pall prints all the values on the stack, starting from the top of the stack.
+The opcode pall prints all the values on the stack, starting from the top of the stack.  
 - Usage pall  
 
 ```bash
@@ -114,9 +114,9 @@ vagrant@~$ ./monty bytecodes/00.m
 vagrant@~$
 ```
 
-### Case: pint
-The opcode pint prints the value at the top of the stack, followed by a new line.
-- Usage: pint
+### Case: pint  
+The opcode pint prints the value at the top of the stack, followed by a new line.  
+- Usage: pint  
   If the stack is empty, print the error message L<line_number>: can't pint, stack empty,
   followed by a new line, and exit with the status EXIT_FAILURE
 
@@ -134,8 +134,8 @@ vagrant@~$
 ```
 
 ### Case: pop
-The opcode pop removes the top element of the stack.
-- Usage: pop
+The opcode pop removes the top element of the stack.  
+- Usage: pop  
   If the stack is empty, print the error message L<line_number>: can't pop an empty stack,
   followed by a new line, and exit with the status EXIT_FAILURE
 
@@ -160,7 +160,86 @@ vagrant@~$ ./monty bytecodes/07.m
 1
 vagrant@~$ 
 ```
-  
+
+### Case: swap  
+The opcode swap swaps the top two elements of the stack.  
+- Usage: swap  
+  If the stack contains less than two elements, print the error message ```L<line_number>: can't swap, stack too short```,
+  followed by a new line, and exit with the status EXIT_FAILURE
+
+```bash
+vagrant@~$ cat bytecodes/09.m 
+push 1
+push 2
+push 3
+pall
+swap
+pall
+vagrant@~$ ./monty bytecodes/09.m 
+3
+2
+1
+2
+3
+1
+vagrant@~$ 
+```
+
+### Case: add
+The opcode add adds the top two elements of the stack.  
+- Usage: add  
+  - If the stack contains less than two elements, print the error message ```L<line_number>: can't add, stack too short```,
+    followed by a new line, and exit with the status EXIT_FAILURE
+  - The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+    - The top element of the stack contains the result
+    - The stack is one element shorter
+
+```bash
+vagrant@~$ cat bytecodes/12.m 
+push 1
+push 2
+push 3
+pall
+add
+pall
+
+vagrant@~$ ./monty bytecodes/12.m 
+3
+2
+1
+5
+1
+vagrant@~$
+```
+
+### Case: nop
+The opcode nop doesn’t do anything.  
+- Usage: nop
+
+### Case: sub
+The opcode sub subtracts the top element of the stack from the second top element of the stack.  
+- Usage: sub  
+  If the stack contains less than two elements, print the error message ```L<line_number>: can't sub, stack too short```,
+  followed by a new line, and exit with the status EXIT_FAILURE
+  The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+  - The top element of the stack contains the result
+  - The stack is one element shorter
+
+```bash
+vagrant@~$ cat bytecodes/19.m 
+push 1
+push 2
+push 10
+push 3
+sub
+pall
+vagrant@~$ ./monty bytecodes/19.m 
+7
+2
+1
+vagrant@~$
+```
+
 ## Authors
 
 * **Juan Marcos Cabezas** - *Initial work* - [PurpleBoothJMC](https://github.com/juanmarcoscabezas)
