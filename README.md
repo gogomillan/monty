@@ -23,16 +23,14 @@ The concepts covered here are:
 - C language understanding
 
 ## Installation
-1. Clone the repo in your local machine:
-
+1. Clone the repo in your local machine:  
 **Example:**
 ```bash
 vagrant@~$
 vagrant@~$ git clone https://github.com/gogomillan/monty.git
 vagrant@~$
 ```
-2. Go to the directory and compile the task you want:
-
+2. Go to the directory and compile the task you want:  
 **Example:**
 ```bash
 vagrant@~$
@@ -43,43 +41,58 @@ assets  check_command.c  LICENSE      monty.h  _pall.c   _pop.c   _queue.c    _r
 bf      _div.c           main.c       _mul.c   _pchar.c  _pstr.c  readfile.c  _rotr.c    _sub.c
 vagrant@~$
 ```
-
-## Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-What things you need to install the software and how to install them
-
+3. Complile the project: 
+**Example**
+```bash 
+vagrant@~$
+vagrant@~$ gcc -Wall -Werror -Wextra -pedantic \*.c -o monty
+vagrant@~$
 ```
-Give examples
+## The Monty language
+Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python).
+It relies on a unique stack, with specific instructions to manipulate it. The goal of this project
+is to create an interpreter for Monty ByteCodes files.
+
+### Monty byte code files
+Files containing Monty byte codes usually have the .m extension. Most of the industry uses this
+standard but it is not required by the specification of the language. There is not more than one
+instruction per line. There can be any number of spaces before or after the opcode and its argument.
+Monty byte code files can contain blank lines (empty or made of spaces only, and any additional
+text after the opcode or its required argument is not taken into account:
+```bash
+vagrant@~$ cat -e bytecodes/000.m
+push 0$
+push 1$
+push 2$
+  push 3$
+                   pall    $
+push 4$
+    push 5    $
+      push    6        $
+pall$
+vagrant@~$
 ```
+### Usage
+Usage: monty file  
+- where file is the path to the file containing Monty byte code
 
-### Installing
+- If the user does not give any file or more than one argument to your program, print
+  the error message USAGE: monty file, followed by a new line, and exit with the
+  status EXIT_FAILURE
+- If, for any reason, it’s not possible to open the file, print the error message
+  Error: Can't open file <file>, followed by a new line, and exit with the status EXIT_FAILURE
+  - where <file> is the name of the file
+- If the file contains an invalid instruction, print the error message L<line_number>: unknown
+  instruction <opcode>, followed by a new line, and exit with the status EXIT_FAILURE
+  - where is the line number where the instruction appears.
+    Line numbers always start at 1
+- The monty program runs the bytecodes line by line and stop if either:
+  - it executed properly every line of the file
+  - it finds an error in the file
+  - an error occured
 
-A step by step series of examples that tell you how to get a development env running
+## Cases
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Ubuntu](https://ubuntu.com/) - Ubuntu 14.04 LTS
-* [gcc](https://gcc.gnu.org/) - GCC, the GNU Compiler Collection
-* [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) - Used to interprete software (sudo apt-get install bf)
 
 ## Authors
 
