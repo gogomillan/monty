@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="368" height="245" src="assets/montylogo.png">
+  <img width="700" height="245" src="assets/montylogo_wide.png">
 </div>
 
 # Monty
