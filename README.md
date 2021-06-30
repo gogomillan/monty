@@ -9,12 +9,23 @@ This is an interpreter for Monty bytecodes files. Through the esoteric [Monty](h
 ![distro Ubuntu](https://img.shields.io/badge/distro-Ubuntu-orange.svg)
 ![tecnology C](https://img.shields.io/badge/technology-C-green.svg)
 
-## Getting Started
+The concepts covered here are:
+- What do LIFO and FIFO mean
+- What is a stack, and when to use it
+- What is a queue, and when to use it
+- What are the common implementations of stacks and queues
+- What are the most common use cases of stacks and queues
+- What is the proper way to use global variables
 
+## Requirements
+- Linux Ubuntu 14.04 LTS
+- gcc (Ubuntu 4.8.4-2ubuntu1~14.04.4) 4.8.4
+- C language understanding
+
+## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
-
 What things you need to install the software and how to install them
 
 ```
