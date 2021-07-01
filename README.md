@@ -286,12 +286,14 @@ The opcode mod computes the rest of the division of the second top element of th
   - The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
     - The top element of the stack contains the result
     - The stack is one element shorter
-  - If the top element of the stack is 0, print the error message L<line_number>: division by zero, followed by a new line, and exit with the status EXIT_FAILURE
+  - If the top element of the stack is 0, print the error message ```L<line_number>: division by zero, followed by a new line```,
+    and exit with the status EXIT_FAILURE  
+
 **Try it out ;-)**
   
 ### Case: comments
 Every good language comes with the capability of commenting. When the first non-space character of
-a line is ```#```, treat this line as a comment (don’t do anything).
+a line is ```#```, treat this line as a comment (don’t do anything).  
 **Try it out ;-)**
   
 ### Case: pchar
@@ -395,7 +397,8 @@ vagrant@~$
 The opcode rotr rotates the stack to the bottom.
 - Usage: rotr
   - The last element of the stack becomes the top element of the stack
-  - rotr never fails
+  - rotr never fails  
+
 **Try it out ;-)**
 
 ### Case: stack, queue
