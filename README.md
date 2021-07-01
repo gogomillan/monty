@@ -240,6 +240,219 @@ vagrant@~$ ./monty bytecodes/19.m
 vagrant@~$
 ```
 
+### Case: div
+The opcode div divides the second top element of the stack by the top element of the stack.
+- Usage: div  
+  - If the stack contains less than two elements, print the error message ```L<line_number>: can't div, stack too short```,
+    followed by a new line, and exit with the status EXIT_FAILURE
+  - The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+    - The top element of the stack contains the result
+    - The stack is one element shorter
+  - If the top element of the stack is 0, print the error message ```L<line_number>: division by zero, followed by a new line```,
+    and exit with the status EXIT_FAILURE
+
+```bash
+vagrant@~$ cat bytecodes/20.m 
+push 3
+push 10
+push 2
+pall
+div
+pall
+vagrant@~$ ./monty bytecodes/20.m 
+2
+10
+3
+5
+3
+vagrant@~$
+```
+
+### Case: mul
+The opcode mul multiplies the second top element of the stack with the top element of the stack.
+- Usage: mul  
+  - If the stack contains less than two elements, print the error message ```L<line_number>: can't mul, stack too short```,
+    followed by a new line, and exit with the status EXIT_FAILURE
+  - The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+    - The top element of the stack contains the result
+    - The stack is one element shorter  
+**Try it out ;-)**
+  
+### Case: mod
+The opcode mod computes the rest of the division of the second top element of the stack by the top element of the stack.
+- Usage: mod  
+  - If the stack contains less than two elements, print the error message ```L<line_number>: can't mod, stack too short, followed by a new line```,
+    and exit with the status EXIT_FAILURE
+  - The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+    - The top element of the stack contains the result
+    - The stack is one element shorter
+  - If the top element of the stack is 0, print the error message L<line_number>: division by zero, followed by a new line, and exit with the status EXIT_FAILURE
+**Try it out ;-)**
+  
+### Case: comments
+Every good language comes with the capability of commenting. When the first non-space character of
+a line is ```#```, treat this line as a comment (don’t do anything).
+**Try it out ;-)**
+  
+### Case: pchar
+The opcode pchar prints the char at the top of the stack, followed by a new line.
+- Usage: pchar
+  - The integer stored at the top of the stack is treated as the ascii value of the character to be printed
+  - If the value is not in the ascii table (man ascii) print the error message ```L<line_number>: can't pchar, value out of range```,
+    followed by a new line, and exit with the status EXIT_FAILURE
+  - If the stack is empty, print the error message ```L<line_number>: can't pchar, stack empty```,
+    followed by a new line, and exit with the status EXIT_FAILURE
+
+```bash
+vagrant@~$ cat bytecodes/28.m 
+push 72
+pchar
+vagrant@~$ ./monty bytecodes/28.m 
+H
+vagrant@~$
+```
+
+### Case: pstr
+The opcode pstr prints the string starting at the top of the stack, followed by a new line.
+- Usage: pstr  
+  - The integer stored in each element of the stack is treated as the ascii value of the character to be printed
+  - The string stops when either:
+    - the stack is over
+    - the value of the element is 0
+    - the value of the element is not in the ascii table
+  - If the stack is empty, print only a new line
+
+```bash
+vagrant@~$ cat bytecodes/31.m 
+push 1
+push 2
+push 3
+push 4
+push 0
+push 110
+push 0
+push 110
+push 111
+push 116
+push 114
+push 101
+push 98
+push 108
+push 111
+push 72
+pstr
+vagrant@~$ ./monty bytecodes/31.m 
+Holberton
+vagrant@~$ 
+```
+
+### Case: rotl
+The opcode rotl rotates the stack to the top.
+- Usage: rotl  
+  - The top element of the stack becomes the last one, and the second top element of the stack becomes the first one
+  - rotl never fails
+
+```bash
+vagrant@~$ cat bytecodes/35.m 
+push 1
+push 2
+push 3
+push 4
+push 5
+push 6
+push 7
+push 8
+push 9
+push 0
+pall
+rotl
+pall
+vagrant@~$ ./monty bytecodes/35.m 
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+vagrant@~$ 
+```
+
+### Case: rotr
+The opcode rotr rotates the stack to the bottom.
+- Usage: rotr
+  - The last element of the stack becomes the top element of the stack
+  - rotr never fails
+**Try it out ;-)**
+
+### Case: stack, queue
+The opcode stack sets the format of the data to a stack (LIFO). This is the default behavior of the program.
+- Usage: stack  
+
+The opcode queue sets the format of the data to a queue (FIFO).
+- Usage: queue  
+
+When switching mode:
+- The top of the stack becomes the front of the queue
+- The front of the queue becomes the top of the stack
+
+```bash
+vagrant@~$ cat bytecodes/47.m
+queue
+push 1
+push 2
+push 3
+pall
+stack
+push 4
+push 5
+push 6
+pall
+add
+pall
+queue
+push 11111
+add
+pall
+vagrant@~$ ./monty bytecodes/47.m
+1
+2
+3
+6
+5
+4
+1
+2
+3
+11
+4
+1
+2
+3
+15
+1
+2
+3
+11111
+vagrant@~$ 
+```
+
+**NOTE:** There is bonuses for Brainf**k language that is based un Turin machine
+find it or contact us ;-)
+  
 ## Authors
 
 * **Juan Marcos Cabezas** - *Initial work* - [PurpleBoothJMC](https://github.com/juanmarcoscabezas)
